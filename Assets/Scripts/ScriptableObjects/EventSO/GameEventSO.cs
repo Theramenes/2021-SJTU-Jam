@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class GameEvent : ScriptableObject
+[CreateAssetMenu(fileName = "Game Event")]
+public class GameEventSO : ScriptableObject
 {
     /// <summary>
     /// The list of listeners that this event will notify if it is raised.
