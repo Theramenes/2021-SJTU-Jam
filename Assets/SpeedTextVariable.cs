@@ -9,12 +9,12 @@ public class SpeedTextVariable : MonoBehaviour
 
     void Start()
     {
-        UIText.text = MovementState.RBSpeed.Value.ToString("f2");
+        UIText.text = MovementState.RBSpeed.Value.ToString("f1");
     }
 
     private void Update()
     {
-        UIText.text = MovementState.RBSpeed.Value.ToString("f2");
+        UIText.text = MovementState.RBSpeed.Value.ToString("f1");
     }
 
     private void FixedUpdate()

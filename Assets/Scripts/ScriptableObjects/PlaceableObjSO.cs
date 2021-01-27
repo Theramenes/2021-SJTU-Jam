@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Placeable Objects/Placeable Objects Info")]
 public class PlaceableObjSO : ScriptableObject
 {
-    public StringVariableSO PlaceableObjName;
+    public StringReference PlaceableObjName;
     public GameObject PlaceableObjPrefab;
     public Sprite PlaceableObjSprite;
 
