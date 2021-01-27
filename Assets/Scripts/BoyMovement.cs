@@ -9,6 +9,8 @@ public class BoyMovement : MonoBehaviour
 
     // Events
     public UnityEvent OnBoyCollideWall;
+    public UnityEvent OnBoyFall;
+    public UnityEvent OnBoyStop;
 
     private Rigidbody rb;
 
@@ -22,16 +24,40 @@ public class BoyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        BoyRuntimeVelocity.Value = rb.velocity;
+        MovementState.BoyPosition = transform.position;
+        SpeedCalculation();
     }
 
     private void FixedUpdate()
     {
-        BoyRuntimeVelocity.Value = rb.velocity;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         OnBoyCollideWall.Invoke();
+    }
+
+    private void AliveCheck() 
+    {
+        if (MovementState.RBSpeed.Value == 0.0f)
+        {
+            OnBoyStop.Invoke();
+            return;
+        }
+
+        if (MovementState.BoyPosition.y < -1)
+        {
+            OnBoyStop.Invoke();
+            return;
+        }
+    }
+
+    private void SpeedCalculation()
+    {
+        float x = BoyRuntimeVelocity.Value.x;
+        float y = BoyRuntimeVelocity.Value.y;
+
+        MovementState.RBSpeed.Value = Mathf.Sqrt(x * x + y * y);
     }
 }

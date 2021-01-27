@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3879208656329498239}
   - component: {fileID: 7174848840094975429}
   - component: {fileID: 4956720681918620999}
+  - component: {fileID: 2958473550783272032}
   m_Layer: 0
   m_Name: Boy Model
   m_TagString: Untagged
@@ -108,3 +109,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2958473550783272032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6357483362051708260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93f3deabf3b07c4ea31ce6064f57bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementState: {fileID: 11400000, guid: 3d7116cb846e9f54191d982b9bf8b919, type: 2}
+  BoyInitVelocity: {fileID: 11400000, guid: 203795550ae1a1a40bb7f03324c28622, type: 2}
+  BoyRuntimeVelocity: {fileID: 11400000, guid: c849b4fb6602b674b9812c9cba874f05, type: 2}
+  OnBoyCollideWall:
+    m_PersistentCalls:
+      m_Calls: []

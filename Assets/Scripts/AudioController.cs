@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseItem : MonoBehaviour
+public class AudioController : MonoBehaviour
 {
-    public Vector3VariableSO VelocityModify;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -17,4 +17,6 @@ public class BaseItem : MonoBehaviour
     {
         
     }
+
+
 }

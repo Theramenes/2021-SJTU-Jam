@@ -58,6 +58,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VelocityModify: {fileID: 11400000, guid: 5050967d81e9a3a41a83e297b7b98dd2, type: 2}
+  OnBoyTriggerItem:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6964665917109491750
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +73,7 @@ GameObject:
   - component: {fileID: 3823243084736317499}
   - component: {fileID: 6629396061721397243}
   - component: {fileID: 6093742089631446045}
+  - component: {fileID: 114073792482361470}
   m_Layer: 0
   m_Name: SpringPad
   m_TagString: Untagged
@@ -150,3 +154,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114073792482361470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6964665917109491750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cdfeb5a045186e4b96d83b33d29782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

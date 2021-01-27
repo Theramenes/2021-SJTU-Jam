@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class VelocityModItem : BaseItem
+public class VelocityModPlaceableObj : BasePlaceableObj
 {
+    public Vector3VariableSO VelocityModify;
+
     public UnityEvent OnBoyTriggerItem;
-    
 
     // Start is called before the first frame update
     void Start()

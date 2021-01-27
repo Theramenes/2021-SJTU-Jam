@@ -10,5 +10,7 @@ public class BoyMovementStateSO : ScriptableObject
 
     // the character velocity
     public Vector3VariableSO RBVelocity;
+    public Vector3 BoyPosition;
 
+    public FloatVariableSO RBSpeed;
 }
