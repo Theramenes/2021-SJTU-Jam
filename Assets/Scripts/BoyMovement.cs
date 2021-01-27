@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class BoyMovement : MonoBehaviour
 {
@@ -18,7 +19,6 @@ public class BoyMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = BoyInitVelocity.Value;
     }
 
     // Update is called once per frame
@@ -27,6 +27,19 @@ public class BoyMovement : MonoBehaviour
         BoyRuntimeVelocity.Value = rb.velocity;
         MovementState.BoyPosition = transform.position;
         SpeedCalculation();
+    }
+
+    // 
+
+    public void DashStart()
+    {
+        //StartCoroutine(WaitFewSeconds());
+        Invoke("AddInitialVelocity", 2);
+    }
+
+    private void AddInitialVelocity()
+    {
+        rb.velocity = BoyInitVelocity.Value;
     }
 
     private void FixedUpdate()
@@ -59,5 +72,22 @@ public class BoyMovement : MonoBehaviour
         float y = BoyRuntimeVelocity.Value.y;
 
         MovementState.RBSpeed.Value = Mathf.Sqrt(x * x + y * y);
+    }
+
+    private void DataInitializer() 
+    {
+        Vector3 zeroVec3 = new Vector3(0, 0, 0);
+
+        MovementState.RBSpeed.Value = 0.0f;
+        MovementState.BoyPosition = zeroVec3;
+
+        BoyRuntimeVelocity.Value = zeroVec3;
+    }
+
+    IEnumerator WaitFewSeconds()
+    {
+        //yield on a new YieldInstruction that waits for 2 seconds.
+        yield return new WaitForSeconds(2);
+
     }
 }

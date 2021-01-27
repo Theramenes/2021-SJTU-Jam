@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
 
     public Transform CameraTransform;
     public CinemachineVirtualCamera PlayerControlCamera;
+    public CinemachineVirtualCamera DashFollowCamera;
 
     private Vector3 newPosition;
     private Vector3 dragStartPosition;
@@ -106,5 +107,10 @@ public class CameraController : MonoBehaviour
     //    return zoomDirectionNormal;
     //}
 
+    public void DashStartCameraSwitch()
+    {
+        DashFollowCamera.gameObject.SetActive(true);
+        PlayerControlCamera.gameObject.SetActive(false);
+    }
 
 }

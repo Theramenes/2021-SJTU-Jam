@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: 
   RBVelocity: {fileID: 11400000, guid: c849b4fb6602b674b9812c9cba874f05, type: 2}
+  BoyPosition: {x: -0.22, y: 0.625, z: 0}
+  RBSpeed: {fileID: 11400000, guid: f8386981565d62946b123eb84787b79b, type: 2}

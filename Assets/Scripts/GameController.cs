@@ -15,4 +15,16 @@ public class GameController : MonoBehaviour
     {
         
     }
+
+    public void BoyFall()
+    {
+
+        Debug.Log("Orga Fall.");
+    }
+
+    public void BoyStopped() 
+    {
+        Debug.Log("Orga Stopped.");
+    }
+
 }
