@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab984a3be590b004aa9f493e86b3ecb6, type: 3}
-  m_Name: BoyInitVelocity
+  m_Script: {fileID: 11500000, guid: 8ee4efba5c74e3b48a60384cb0faf11a, type: 3}
+  m_Name: BoyMovementState
   m_EditorClassIdentifier: 
-  DeveloperDescription: "\u89D2\u8272\u7684\u521D\u901F\u5EA6"
-  Value: {x: 20, y: 0, z: 0}
+  DeveloperDescription: 
+  RBVelocity: {fileID: 11400000, guid: c849b4fb6602b674b9812c9cba874f05, type: 2}
