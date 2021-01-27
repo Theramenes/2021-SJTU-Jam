@@ -27,8 +27,8 @@ public class DragContorller : MonoBehaviour
     /// </summary>
     void OnMouseDrag()
     {
-        //1：把物体的世界坐标转为屏幕坐标 (依然会保留z坐标)
-        currPosition = Camera.main.WorldToScreenPoint(transform.position);
+        //1：把物体的世界坐标转为屏幕坐标 (依然会        
+        // currPosition = Camera.main.WorldToScreenPoint(transform.position);保留z坐标)
 
         //2：更新物体屏幕坐标系的x,y
         currPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, currPosition.z);
