@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour
     public FloatVariableSO MovementLerpSpeed;
     public FloatVariableSO ZoomSpeed;
 
+    public FloatReference ZoomInAmount;
+
     public Transform CameraTransform;
     public CinemachineVirtualCamera PlayerControlCamera;
     public CinemachineVirtualCamera DashFollowCamera;
@@ -65,7 +67,7 @@ public class CameraController : MonoBehaviour
 
         if (Input.mouseScrollDelta.y != 0)
         {
-            PlayerControlCamera.m_Lens.OrthographicSize += ZoomSpeed.Value * Input.mouseScrollDelta.y;
+            PlayerControlCamera.m_Lens.OrthographicSize -= ZoomSpeed.Value * Input.mouseScrollDelta.y;
             //newZoomPosition += GetCameraZoomNormal() * ZoomSpeed.Value * Input.mouseScrollDelta.y;
             //Debug.Log("mouseScrollDelta and newZoomPosition:" + Input.mouseScrollDelta.y + newZoomPosition);
         }
@@ -93,24 +95,17 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    //Vector3 GetCameraZoomNormal()
-    //{
-    //    float cameraRotationXRad = CameraTransform.eulerAngles.x * Mathf.Deg2Rad;
-    //    float cameraRotationYRad = CameraTransform.eulerAngles.y * Mathf.Deg2Rad;
-
-    //    Vector3 zoomDirectionNormal = new Vector3(Mathf.Cos(cameraRotationXRad) * Mathf.Sin(cameraRotationYRad),
-    //        -Mathf.Sin(cameraRotationXRad),
-    //        Mathf.Cos(cameraRotationXRad) * Mathf.Cos(cameraRotationYRad));
-    //    Debug.Log("Angles:" + CameraTransform.eulerAngles.x + " " + CameraTransform.eulerAngles.y);
-    //    Debug.Log("cameraTransform:" + Mathf.Sin(cameraRotationXRad) + " " + Mathf.Sin(cameraRotationYRad));
-    //    Debug.Log("cameraZoom:" + zoomDirectionNormal);
-    //    return zoomDirectionNormal;
-    //}
 
     public void DashStartCameraSwitch()
     {
         DashFollowCamera.gameObject.SetActive(true);
         PlayerControlCamera.gameObject.SetActive(false);
     }
+
+    public void DashCameraZoomIn()
+    {
+        DashFollowCamera.m_Lens.OrthographicSize -= ZoomInAmount;
+    }
+
 
 }

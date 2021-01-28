@@ -1,18 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using UnityEditor;
 
-public class AudioEditor : MonoBehaviour
+[CustomEditor(typeof(AudioClipSO), true)]
+public class AudioEditor : Editor
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField] private AudioSource _previewer;
+
+	public void OnEnable()
+	{
+		_previewer = EditorUtility.CreateGameObjectWithHideFlags("Audio preview", HideFlags.HideAndDontSave, typeof(AudioSource)).GetComponent<AudioSource>();
+	}
+
+	public void OnDisable()
+	{
+		DestroyImmediate(_previewer.gameObject);
+	}
+
+	public override void OnInspectorGUI()
+	{
+		DrawDefaultInspector();
+
+		EditorGUI.BeginDisabledGroup(serializedObject.isEditingMultipleObjects);
+		if (GUILayout.Button("Preview"))
+		{
+			((AudioClipSO)target).Play(_previewer);
+		}
+		EditorGUI.EndDisabledGroup();
+	}
 }

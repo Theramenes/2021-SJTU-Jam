@@ -1,32 +1,19 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿
 using UnityEditor;
+using UnityEngine;
 
-[CustomEditor(typeof(AudioClipSO), true)]
-public class AudioEventEditor : Editor
+[CustomEditor(typeof(GameEventSO), editorForChildClasses: true)]
+public class EventEditor : Editor
 {
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
 
-	[SerializeField] private AudioSource _previewer;
+        GUI.enabled = Application.isPlaying;
 
-	public void OnEnable()
-	{
-		_previewer = EditorUtility.CreateGameObjectWithHideFlags("Audio preview", HideFlags.HideAndDontSave, typeof(AudioSource)).GetComponent<AudioSource>();
-	}
-
-	public void OnDisable()
-	{
-		DestroyImmediate(_previewer.gameObject);
-	}
-
-	public override void OnInspectorGUI()
-	{
-		DrawDefaultInspector();
-
-		EditorGUI.BeginDisabledGroup(serializedObject.isEditingMultipleObjects);
-		if (GUILayout.Button("Preview"))
-		{
-			((AudioClipSO)target).Play(_previewer);
-		}
-		EditorGUI.EndDisabledGroup();
-	}
+        GameEventSO e = target as GameEventSO;
+        if (GUILayout.Button("Raise"))
+            e.Raise();
+    }
 }
+

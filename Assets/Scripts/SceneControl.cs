@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioController : MonoBehaviour
+public class SceneControl : MonoBehaviour
 {
-    private AudioSource audioSource;
-
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -18,5 +16,15 @@ public class AudioController : MonoBehaviour
         
     }
 
+    public void LoadGameScene()
+    {
+
+
+    }
+
+    public void QuiteGame()
+    {
+
+    }
 
 }

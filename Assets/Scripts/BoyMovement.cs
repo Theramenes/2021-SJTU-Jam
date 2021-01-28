@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.Animations;
 
 public class BoyMovement : MonoBehaviour
 {
     public BoyMovementStateSO MovementState;
     public Vector3VariableSO BoyInitVelocity;
     public Vector3VariableSO BoyRuntimeVelocity;
+
+    public Animator BoyAnimator;
 
     // Events
     public UnityEvent OnBoyCollideWall;
@@ -88,6 +91,12 @@ public class BoyMovement : MonoBehaviour
     {
         //yield on a new YieldInstruction that waits for 2 seconds.
         yield return new WaitForSeconds(2);
-
     }
+
+    public void OnDeadFreeze()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+
 }
