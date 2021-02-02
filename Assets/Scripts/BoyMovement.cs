@@ -11,6 +11,8 @@ public class BoyMovement : MonoBehaviour
 
     public Animator BoyAnimator;
 
+
+    private bool isDash = false;
     // Events
     public UnityEvent OnBoyCollideWall;
     public UnityEvent OnBoyFall;
@@ -22,14 +24,15 @@ public class BoyMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        BoyAnimator = GetComponentInChildren<Animator>();
     }
-
     // Update is called once per frame
     void Update()
     {
         BoyRuntimeVelocity.Value = rb.velocity;
         MovementState.BoyPosition = transform.position;
         SpeedCalculation();
+        //AliveCheck();
     }
 
     // 
@@ -38,11 +41,14 @@ public class BoyMovement : MonoBehaviour
     {
         //StartCoroutine(WaitFewSeconds());
         Invoke("AddInitialVelocity", 2);
+        isDash = true;
+    
     }
 
     private void AddInitialVelocity()
     {
         rb.velocity = BoyInitVelocity.Value;
+        BoyAnimator.SetInteger("Trigger", 1);
     }
 
     private void FixedUpdate()
@@ -56,7 +62,7 @@ public class BoyMovement : MonoBehaviour
 
     private void AliveCheck() 
     {
-        if (MovementState.RBSpeed.Value == 0.0f)
+        if (MovementState.RBSpeed.Value <= 1.0f && isDash )
         {
             OnBoyStop.Invoke();
             return;
@@ -96,6 +102,7 @@ public class BoyMovement : MonoBehaviour
     public void OnDeadFreeze()
     {
         rb.constraints = RigidbodyConstraints.FreezeAll;
+        BoyAnimator.SetInteger("Trigger", 0);
     }
 
 

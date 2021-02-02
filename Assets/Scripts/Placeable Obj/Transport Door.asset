@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9d64248915dd314592d0272573e25a6, type: 3}
-  m_Name: New Placeable Obj SO
+  m_Name: Transport Door
   m_EditorClassIdentifier: 
-  PlaceableObjName: {fileID: 0}
-  PlaceableObjPrefab: {fileID: 6964665917109491750, guid: 6660db6b64ccc134b89b957542fb2e94,
+  PlaceableObjName:
+    UseConstant: 1
+    ConstantValue: Transport Door
+    Variable: {fileID: 0}
+  PlaceableObjPrefab: {fileID: 8290900296950629271, guid: a1b0bd38695f0f6438ebad1ca9b56dd2,
     type: 3}
-  PlaceableObjSprite: {fileID: 21300000, guid: 19a0b418193556f4287b4089684dfe8e, type: 3}
+  PlaceableObjSprite: {fileID: 21300000, guid: 9e33d16adbeb8ba439e280d468351661, type: 3}

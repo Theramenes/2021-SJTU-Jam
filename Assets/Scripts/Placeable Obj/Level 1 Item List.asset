@@ -15,6 +15,6 @@ MonoBehaviour:
   PlaceableObjs:
   - {fileID: 11400000, guid: a691959b30678d3429160453db8ecb63, type: 2}
   - {fileID: 11400000, guid: 72d5274bb2529824cb749ed53708f29c, type: 2}
-  - {fileID: 11400000, guid: 907867f143832394eb4568a228de2956, type: 2}
-  - {fileID: 11400000, guid: ba8936c5d40e0a6429e1621ba03c9884, type: 2}
+  - {fileID: 11400000, guid: 72d5274bb2529824cb749ed53708f29c, type: 2}
+  - {fileID: 11400000, guid: 7e94e340d1078dd4cb0109a56cd3cb58, type: 2}
   - {fileID: 11400000, guid: 7e94e340d1078dd4cb0109a56cd3cb58, type: 2}

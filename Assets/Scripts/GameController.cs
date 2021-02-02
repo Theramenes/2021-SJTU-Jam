@@ -4,9 +4,7 @@ using Cinemachine;
 public class GameController : MonoBehaviour
 {
     public CinemachineVirtualCamera DashFollowCamera;
-
-    public 
-
+   
 
     // Start is called before the first frame update
     void Start()
