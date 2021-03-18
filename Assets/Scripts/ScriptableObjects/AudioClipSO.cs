@@ -8,7 +8,11 @@ public class AudioClipSO : ScriptableObject
 {
 	public AudioClip clip;
 
+<<<<<<< Updated upstream
 	[Range(0.0f, 1.0f)]
+=======
+	[Range(0.0f, 5.0f)]
+>>>>>>> Stashed changes
 	public float volume;
 
 

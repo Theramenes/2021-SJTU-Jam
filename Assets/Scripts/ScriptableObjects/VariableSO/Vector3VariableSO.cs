@@ -29,4 +29,9 @@ public class Vector3VariableSO : ScriptableObject
     {
         Value += amount.Value;
     }
+
+    public void VariableInitialize()
+    {
+        Value = Vector3.zero;
+    }
 }

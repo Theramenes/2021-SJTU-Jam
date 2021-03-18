@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
+    public AudioClipSO[] audioClips;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -18,5 +20,29 @@ public class AudioController : MonoBehaviour
         
     }
 
+    public void PlaySERandom()
+    {
+        audioClips[Random.Range(0, audioClips.Length)].Play(audioSource);
+    }
 
+
+    public void PlaySE1()
+    {
+        if (audioClips.Length >= 1)
+            audioClips[0].Play(audioSource);
+    }
+
+    public void PlaySE2()
+    {
+
+        if (audioClips.Length >= 2)
+            audioClips[1].Play(audioSource);
+    }
+
+    public void PlaySE3()
+    {
+
+        if (audioClips.Length >= 3)
+            audioClips[2].Play(audioSource);
+    }
 }

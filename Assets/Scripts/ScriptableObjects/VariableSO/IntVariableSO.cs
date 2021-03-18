@@ -28,4 +28,9 @@ public class IntVariableSO : ScriptableObject
     {
         Value += amount.Value;
     }
+
+    public void VariableInitialize()
+    {
+        Value = 0;
+    }
 }

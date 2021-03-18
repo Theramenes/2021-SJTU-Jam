@@ -3,14 +3,30 @@ using UnityEngine;
 using Cinemachine;
 
 public class CameraController : MonoBehaviour
+<<<<<<< Updated upstream
 {
     public FloatVariableSO MovementSpeed;
     public FloatVariableSO MovementLerpSpeed;
     public FloatVariableSO ZoomSpeed;
 
+=======
+{    [Header("Cameras")]
+>>>>>>> Stashed changes
     public Transform CameraTransform;
     public CinemachineVirtualCamera PlayerControlCamera;
     public CinemachineVirtualCamera DashFollowCamera;
+
+    [Header("Camera Movement Parameters")]
+    public FloatReference MovementSpeed;
+    public FloatReference MovementLerpSpeed;
+    public FloatReference ZoomSpeedControl;
+
+    public FloatReference ZoomLerpSpeed;
+    public FloatReference OrgaCameraOrthoSize;
+    public FloatReference ZoomSpeedRuntime;
+
+    [Header("Character Movement Data")]
+    public CharacterMovementStateSO MovementState;
 
     private Vector3 newPosition;
     private Vector3 dragStartPosition;
@@ -45,11 +61,12 @@ public class CameraController : MonoBehaviour
     {
         HandleMouseInput();
         //HandleKeyMovementInput();
-        cameraMove();
+        CameraMove();
+        RuntimeCameraZoom();
     }
 
 
-    void cameraMove()
+    private void CameraMove()
     {
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * MovementLerpSpeed.Value);
         CameraTransform.localPosition = Vector3.Lerp(CameraTransform.localPosition, newPosition,
@@ -57,7 +74,7 @@ public class CameraController : MonoBehaviour
     }
 
 
-    void HandleMouseInput()
+    private void HandleMouseInput()
     {
         float enter;
         Plane plane = new Plane(Vector3.back, Vector3.zero);
@@ -65,7 +82,11 @@ public class CameraController : MonoBehaviour
 
         if (Input.mouseScrollDelta.y != 0)
         {
+<<<<<<< Updated upstream
             PlayerControlCamera.m_Lens.OrthographicSize += ZoomSpeed.Value * Input.mouseScrollDelta.y;
+=======
+            PlayerControlCamera.m_Lens.OrthographicSize -= ZoomSpeedControl.Value * Input.mouseScrollDelta.y;
+>>>>>>> Stashed changes
             //newZoomPosition += GetCameraZoomNormal() * ZoomSpeed.Value * Input.mouseScrollDelta.y;
             //Debug.Log("mouseScrollDelta and newZoomPosition:" + Input.mouseScrollDelta.y + newZoomPosition);
         }
@@ -93,6 +114,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
     //Vector3 GetCameraZoomNormal()
     //{
     //    float cameraRotationXRad = CameraTransform.eulerAngles.x * Mathf.Deg2Rad;
@@ -106,6 +128,16 @@ public class CameraController : MonoBehaviour
     //    Debug.Log("cameraZoom:" + zoomDirectionNormal);
     //    return zoomDirectionNormal;
     //}
+=======
+    private void RuntimeCameraZoom()
+    {
+        float curOrthoSize = DashFollowCamera.m_Lens.OrthographicSize;
+        if (DashFollowCamera.gameObject.activeSelf)
+            DashFollowCamera.m_Lens.OrthographicSize = Mathf.Lerp(curOrthoSize,OrgaCameraOrthoSize.Value +
+                ZoomSpeedRuntime.Value * MovementState.CharacterSpeed.Value, ZoomLerpSpeed.Value); 
+    }
+
+>>>>>>> Stashed changes
 
     public void DashStartCameraSwitch()
     {
@@ -113,4 +145,13 @@ public class CameraController : MonoBehaviour
         PlayerControlCamera.gameObject.SetActive(false);
     }
 
+<<<<<<< Updated upstream
+=======
+    public void DashCameraZoomIn()
+    {
+        DashFollowCamera.m_Lens.OrthographicSize = OrgaCameraOrthoSize;
+    }
+
+
+>>>>>>> Stashed changes
 }
