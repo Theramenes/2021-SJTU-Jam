@@ -13,8 +13,4 @@ MonoBehaviour:
   m_Name: CharacterInitVelocity
   m_EditorClassIdentifier: 
   DeveloperDescription: "\u89D2\u8272\u7684\u521D\u901F\u5EA6"
-<<<<<<< Updated upstream:Assets/Scripts/Variables/BoyInitVelocity.asset
-  Value: {x: 20, y: 0, z: 0}
-=======
-  Value: {x: 21.68, y: 0, z: 0}
->>>>>>> Stashed changes:Assets/Scripts/Variables/CharacterInitVelocity.asset
+  Value: {x: 21.19, y: 0, z: 0}

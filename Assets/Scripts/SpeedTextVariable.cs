@@ -9,20 +9,12 @@ public class SpeedTextVariable : MonoBehaviour
 
     void Start()
     {
-<<<<<<< Updated upstream
-        UIText.text = MovementState.RBSpeed.Value.ToString("f2");
-=======
         UIText.text = MovementState.CharacterSpeed.Value.ToString("f1");
->>>>>>> Stashed changes
     }
 
     private void Update()
     {
-<<<<<<< Updated upstream
-        UIText.text = MovementState.RBSpeed.Value.ToString("f2");
-=======
         UIText.text = MovementState.CharacterSpeed.Value.ToString("f1");
->>>>>>> Stashed changes
     }
 
     private void FixedUpdate()

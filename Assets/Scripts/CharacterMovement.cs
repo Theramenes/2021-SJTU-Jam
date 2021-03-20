@@ -11,7 +11,7 @@ public class CharacterMovement : MonoBehaviour
     public Vector3VariableSO RuntimeVelocity;
 
     [Header("Animator")]
-    public Animator BoyAnimator;
+    //public Animator BoyAnimator;
 
     // Events
     [Header("Events")]
@@ -30,7 +30,7 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        BoyAnimator = GetComponentInChildren<Animator>();
+        //BoyAnimator = GetComponentInChildren<Animator>();
 
         MovementParameterInitialize();
     }
@@ -49,11 +49,11 @@ public class CharacterMovement : MonoBehaviour
         StartCoroutine("GameStartDelay");
     }
 
-    private void addInitialVelocity()
+    private void AddInitialVelocity()
     {
         isDash = true;
         rb.velocity = InitVelocity.Value;
-        BoyAnimator.SetInteger("Trigger", 1);
+        //BoyAnimator.SetInteger("Trigger", 1);
     }
 
     private void FixedUpdate()
@@ -86,7 +86,7 @@ public class CharacterMovement : MonoBehaviour
     public void OnDeadFreeze()
     {
         rb.constraints = RigidbodyConstraints.FreezeAll;
-        BoyAnimator.SetInteger("Trigger", 0);
+        //BoyAnimator.SetInteger("Trigger", 0);
     }
 
     /*
@@ -119,7 +119,7 @@ public class CharacterMovement : MonoBehaviour
 
                 Debug.Log("start dash");
                 OnDashStart.Invoke();
-                addInitialVelocity();
+                AddInitialVelocity();
                 yield break;
             }
             yield return null;

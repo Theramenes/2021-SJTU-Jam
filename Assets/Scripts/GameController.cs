@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
-<<<<<<< Updated upstream
-=======
 using Cinemachine;
 using UnityEngine.SceneManagement;
->>>>>>> Stashed changes
 
 public class GameController : MonoBehaviour
 {
@@ -32,8 +29,6 @@ public class GameController : MonoBehaviour
         Debug.Log("Orga Stopped.");
     }
 
-<<<<<<< Updated upstream
-=======
     public void OnCharacterDead()
     {
         //PauseGame();
@@ -59,5 +54,4 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("Basic Feature Test Scene");
     }
 
->>>>>>> Stashed changes
 }
